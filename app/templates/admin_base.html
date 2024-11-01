@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content=" Admin Dashboard">
+    <meta name="keywords" content="Admin, Dashboard, Sales, Inventory">
+    <title>{% block title %}Busines Admin Dashboard{% endblock %}</title>
+
+    <!-- Bootstrap, FontAwesome, and Custom CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
+</head>
+<body>
+
+    <!-- Sidebar Toggle Button for Mobile -->
+    <div class="sidebar-toggle d-md-none" id="sidebarToggle">
+        <i class="fas fa-bars"></i>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <h3>Busines.</h3>
+        <a href="{{ url_for('auth.admin_dashboard') }}" class="active">Dashboard</a>
+        <a href="{{ url_for('sales.daily_sales_report') }}">Sales Reports</a>
+        <a href="{{ url_for('stock.products') }}">Manage Products</a>
+        <a href="{{ url_for('stock.categories') }}">Manage Categories</a>
+        <a href="{{ url_for('stock.update_stock') }}">Update Stock</a>
+       
+        <a href="{{ url_for('auth.user_management') }}">User Management</a>
+         <a class="dropdown-item" href="{{ url_for('auth.change_password') }}">Change Password</a>
+        <hr style="border-color: #6c757d; margin: 10px 0;">
+        <a href="{{ url_for('auth.logout') }}" class="text-danger">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="content">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="container mt-4">
+            {% block content %}
+            <!-- Page-specific content goes here -->
+            {% endblock %}
+        </div>
+
+        <!-- Footer Section -->
+        <footer>
+            &copy; {{ current_year }} businessname. All rights reserved.
+        </footer>
+    </div>
+
+    {% block extra_js %}
+    <!-- jQuery, Bootstrap, and DataTables JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+
+    <!-- JavaScript for Sidebar Toggle -->
+    <script>
+        $(document).ready(function() {
+            const sidebar = $('#sidebar');
+            const sidebarToggle = $('#sidebarToggle');
+
+            sidebarToggle.on('click', function() {
+                sidebar.toggleClass('sidebar-hidden');
+            });
+        });
+    </script>
+    {% endblock %}
+</body>
+</html>

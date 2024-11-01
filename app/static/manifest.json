@@ -1,0 +1,24 @@
+{
+    "name": "JJJ",
+    "short_name": "JJJ",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#ffffff",
+    "theme_color": "#007bff",
+    "scope": "/",
+    "lang": "en-US",
+    "description": "JJJ is your comprehensive POS solution for streamlined stock and expense management.",
+    "icons": [
+        {
+            "src": "/static/images/icon-192x192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "/static/images/icon-512x512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
