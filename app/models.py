@@ -45,7 +45,7 @@ class User(UserMixin, db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(100), unique=True, nullable=False, index=True)  
-    password_hash = db.Column(db.String(128), nullable=False)
+    password_hash = db.Column(db.String(256), nullable=False)
     role = db.Column(db.Enum(Role), nullable=False)
 
     __table_args__ = (Index('ix_user_role', 'role'),)  # Index on role for faster queries
