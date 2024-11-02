@@ -1,0 +1,23 @@
+2024-11-02 16:37:45,912 - ERROR - Exception on /stock/products/new [POST]
+Traceback (most recent call last):
+  File "/home/bha/Desktop/Demo/demo/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Demo/demo/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Demo/demo/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Demo/demo/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Demo/demo/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Demo/app/stock.py", line 155, in new_product
+    socketio.emit('stock_updated', {
+  File "/home/bha/Desktop/Demo/demo/lib/python3.11/site-packages/flask_socketio/__init__.py", line 473, in emit
+    self.server.emit(event, *args, namespace=namespace, to=to,
+TypeError: Server.emit() got an unexpected keyword argument 'broadcast'
+2024-11-02 16:37:45,970 - ERROR - Server Error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.

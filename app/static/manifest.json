@@ -1,6 +1,6 @@
 {
-    "name": "JJJ",
-    "short_name": "JJJ",
+    "name": "Salesta",
+    "short_name": "Salesta pos",
     "start_url": "/",
     "display": "standalone",
     "orientation": "portrait",
@@ -8,7 +8,7 @@
     "theme_color": "#007bff",
     "scope": "/",
     "lang": "en-US",
-    "description": "JJJ is your comprehensive POS solution for streamlined stock and expense management.",
+    "description": "Salesta is your comprehensive POS solution for streamlined stock and expense management.",
     "icons": [
         {
             "src": "/static/images/icon-192x192.png",

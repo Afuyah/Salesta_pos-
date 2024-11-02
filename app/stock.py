@@ -117,7 +117,6 @@ def products():
         return redirect(url_for('home.index'))  # Redirect to a safe place if the user role is not recognized
 
 
-
 @stock_bp.route('/products/new', methods=['GET', 'POST'])
 @login_required
 def new_product():
@@ -156,11 +155,12 @@ def new_product():
             'id': new_product.id,
             'name': new_product.name,
             'stock': new_product.stock
-        }, broadcast=True)
+        })
 
         return redirect(url_for('stock.products'))
 
     return render_template('new_product.html', categories=categories, suppliers=suppliers)
+
 
 def validate_product_data(data):
     # Check if the product already exists
