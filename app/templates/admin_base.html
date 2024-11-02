@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content=" Admin Dashboard">
+    <meta name="description" content="Admin Dashboard">
     <meta name="keywords" content="Admin, Dashboard, Sales, Inventory">
-    <title>{% block title %}Busines Admin Dashboard{% endblock %}</title>
+    <title>{% block title %}Business Admin Dashboard{% endblock %}</title>
 
     <!-- Bootstrap, FontAwesome, and Custom CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -22,17 +22,16 @@
 
     <!-- Sidebar Navigation -->
     <div class="sidebar" id="sidebar">
-        <h3>Busines.</h3>
-        <a href="{{ url_for('auth.admin_dashboard') }}" class="active">Dashboard</a>
-        <a href="{{ url_for('sales.daily_sales_report') }}">Sales Reports</a>
-        <a href="{{ url_for('stock.products') }}">Manage Products</a>
-        <a href="{{ url_for('stock.categories') }}">Manage Categories</a>
-        <a href="{{ url_for('stock.update_stock') }}">Update Stock</a>
-       
-        <a href="{{ url_for('auth.user_management') }}">User Management</a>
-         <a class="dropdown-item" href="{{ url_for('auth.change_password') }}">Change Password</a>
+        <h3>Business Admin</h3>
+        <a href="{{ url_for('auth.admin_dashboard') }}" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="{{ url_for('sales.daily_sales_report') }}"><i class="fas fa-chart-line"></i> Sales Reports</a>
+        <a href="{{ url_for('stock.products') }}"><i class="fas fa-box"></i> Manage Products</a>
+        <a href="{{ url_for('stock.categories') }}"><i class="fas fa-tags"></i> Manage Categories</a>
+        <!--<a href="{{ url_for('stock.update_stock') }}"><i class="fas fa-sync-alt"></i> Update Stock</a>-->
+        <a href="{{ url_for('auth.user_management') }}"><i class="fas fa-users"></i> User Management</a>
+        <a class="dropdown-item" href="{{ url_for('auth.change_password') }}"><i class="fas fa-key"></i> Change Password</a>
         <hr style="border-color: #6c757d; margin: 10px 0;">
-        <a href="{{ url_for('auth.logout') }}" class="text-danger">Logout</a>
+        <a href="{{ url_for('auth.logout') }}" class="text-danger"><i class="fas fa-sign-out-alt"></i> Logout</a>
     </div>
 
     <!-- Main Content -->
@@ -52,9 +51,7 @@
         </div>
 
         <!-- Footer Section -->
-        <footer>
-            &copy; {{ current_year }} businessname. All rights reserved.
-        </footer>
+       
     </div>
 
     {% block extra_js %}
@@ -65,15 +62,15 @@
 
     <!-- JavaScript for Sidebar Toggle -->
     <script>
-        $(document).ready(function() {
-            const sidebar = $('#sidebar');
-            const sidebarToggle = $('#sidebarToggle');
-
-            sidebarToggle.on('click', function() {
-                sidebar.toggleClass('sidebar-hidden');
-            });
+    $(document).ready(function() {
+        const sidebarToggle = $('#sidebarToggle');
+        
+        sidebarToggle.on('click', function() {
+            $('body').toggleClass('sidebar-hidden');
         });
+    });
     </script>
+
     {% endblock %}
 </body>
 </html>

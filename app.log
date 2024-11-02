@@ -21,3 +21,70 @@ Traceback (most recent call last):
     self.server.emit(event, *args, namespace=namespace, to=to,
 TypeError: Server.emit() got an unexpected keyword argument 'broadcast'
 2024-11-02 16:37:45,970 - ERROR - Server Error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-11-02 18:06:28,685 - ERROR - Exception on /stock/products/1/update_stock [POST]
+Traceback (most recent call last):
+  File "/home/bha/Desktop/Salesta_pos-/app/stock.py", line 367, in update_stock_product
+    emit_stock_update(product)
+  File "/home/bha/Desktop/Salesta_pos-/app/stock.py", line 393, in emit_stock_update
+    socketio.emit('stock_updated', {
+  File "/home/bha/Desktop/Salesta_pos-/demo/lib/python3.11/site-packages/flask_socketio/__init__.py", line 473, in emit
+    self.server.emit(event, *args, namespace=namespace, to=to,
+TypeError: Server.emit() got an unexpected keyword argument 'broadcast'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bha/Desktop/Salesta_pos-/demo/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Salesta_pos-/demo/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Salesta_pos-/demo/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Salesta_pos-/demo/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Salesta_pos-/demo/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Salesta_pos-/app/stock.py", line 373, in update_stock_product
+    except SQLAlchemyError as se:
+           ^^^^^^^^^^^^^^^
+NameError: name 'SQLAlchemyError' is not defined
+2024-11-02 18:06:28,693 - ERROR - Server Error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
+2024-11-02 18:06:51,203 - ERROR - Exception on /stock/products/1/update_stock [POST]
+Traceback (most recent call last):
+  File "/home/bha/Desktop/Salesta_pos-/app/stock.py", line 367, in update_stock_product
+    quantity_to_add = int(request.form['quantity'])
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Salesta_pos-/app/stock.py", line 393, in emit_stock_update
+    except Exception as e:
+  File "/home/bha/Desktop/Salesta_pos-/demo/lib/python3.11/site-packages/flask_socketio/__init__.py", line 473, in emit
+    self.server.emit(event, *args, namespace=namespace, to=to,
+TypeError: Server.emit() got an unexpected keyword argument 'broadcast'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/bha/Desktop/Salesta_pos-/demo/lib/python3.11/site-packages/flask/app.py", line 1473, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Salesta_pos-/demo/lib/python3.11/site-packages/flask/app.py", line 882, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Salesta_pos-/demo/lib/python3.11/site-packages/flask/app.py", line 880, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Salesta_pos-/demo/lib/python3.11/site-packages/flask/app.py", line 865, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Salesta_pos-/demo/lib/python3.11/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bha/Desktop/Salesta_pos-/app/stock.py", line 373, in update_stock_product
+    if total_amount < 0:
+           ^^^^^^^^^^^^^^
+NameError: name 'SQLAlchemyError' is not defined
+2024-11-02 18:06:51,205 - ERROR - Server Error: 500 Internal Server Error: The server encountered an internal error and was unable to complete your request. Either the server is overloaded or there is an error in the application.
